@@ -15,7 +15,7 @@ public class Artefatos {
     public double getDano(){
         return danoDoArtefato;
     }
-    
+
     public double getCvDoArtefato(){
         return cvDoArtefato;
     }
