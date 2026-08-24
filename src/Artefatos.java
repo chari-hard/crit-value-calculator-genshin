@@ -1,6 +1,7 @@
 public class Artefatos {
     private double taxaDoArtefato;
     private double danoDoArtefato;
+    private double cvDoArtefato;
 
     public Artefatos(){
 
@@ -14,6 +15,10 @@ public class Artefatos {
     public double getDano(){
         return danoDoArtefato;
     }
+    
+    public double getCvDoArtefato(){
+        return cvDoArtefato;
+    }
 
     // set
 
@@ -24,4 +29,11 @@ public class Artefatos {
     public void setDano(double dano){
         this.danoDoArtefato = dano;
     }
+
+    //outros métodos
+
+    public void setCvDoArtefato(){
+        this.cvDoArtefato = (this.taxaDoArtefato * 2) + this.danoDoArtefato;
+    }
+
 }
