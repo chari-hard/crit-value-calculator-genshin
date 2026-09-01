@@ -26,6 +26,9 @@ public class Main {
         double danoTotalArtefatos = flor.danoDoArtefato + pena.danoDoArtefato + areia.danoDoArtefato + copo.danoDoArtefato + tiara.danoDoArtefato;
         double mediaCvSemTiara = (flor.getCvDoArtefato() + pena.getCvDoArtefato() + areia.getCvDoArtefato() + copo.getCvDoArtefato()) / 4 ;
 
+        double taxaConjuntoDeArtefatos;
+        double danoConjuntoDeArtefatos;
+
 
         ///////////// VARIAVEIS ARMA ////////////
 
@@ -45,7 +48,7 @@ public class Main {
 
         System.out.println("Insira o crítico dos artefatos direto no código!!!");
 
-        System.out.print("\n1 - Seu personagem ascende com taxa ou dano?: ");
+        System.out.print("\n1 - Seu personagem acende com taxa ou dano?: ");
         String danoOuTaxa = sc.nextLine();
         if (danoOuTaxa.equals("taxa")){
             taxaDoPersonagem = 19.2;
@@ -65,6 +68,17 @@ public class Main {
         cvAtefatosMeta = sc.nextDouble();
 
         ///////////////////////////
-        
+
+        double taxaFinal = taxaDoPersonagem + taxaTotalArtefatos + taxaDaArma;
+        double DanoFinal = danoDoPersonagem + danoTotalArtefatos + danoDaArma;
+
+        double taxaTotalSemArtefatos = taxaDoPersonagem + taxaDaArma;
+        double danoTotalSemArtefatos = danoDoPersonagem + danoDaArma;
+
+
+        ///////////////////////////
+
+        double taxaIdeial;
+        double danoIdeal;
     }
 }
