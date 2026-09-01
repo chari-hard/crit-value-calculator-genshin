@@ -1,6 +1,8 @@
 public class Artefatos {
     public double taxaDoArtefato;
     public double danoDoArtefato;
+    public double bonusTaxaDeConjunto;
+    public double bonusDanoDeConjunto;
     private double cvDoArtefato;
 
     public Artefatos(double dano, double taxa){
