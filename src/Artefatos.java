@@ -1,39 +1,17 @@
 public class Artefatos {
-    private double taxaDoArtefato;
-    private double danoDoArtefato;
+    public double taxaDoArtefato;
+    public double danoDoArtefato;
     private double cvDoArtefato;
 
-    public Artefatos(){
-
+    public Artefatos(double dano, double taxa){
+        this.danoDoArtefato = dano;
+        this.taxaDoArtefato = taxa;
+        this.cvDoArtefato = this.danoDoArtefato + (taxaDoArtefato * 2);
     }
 
-    // get
-
-    public double getTaxa(){
-        return taxaDoArtefato;
-    }
-    public double getDano(){
-        return danoDoArtefato;
-    }
+    //Calculo de cv
 
     public double getCvDoArtefato(){
         return cvDoArtefato;
     }
-
-    // set
-
-    public void setTaxa(double taxa){
-        this.taxaDoArtefato = taxa;
-    }
-
-    public void setDano(double dano){
-        this.danoDoArtefato = dano;
-    }
-
-    //outros métodos
-
-    public void setCvDoArtefato(){
-        this.cvDoArtefato = (this.taxaDoArtefato * 2) + this.danoDoArtefato;
-    }
-
 }
