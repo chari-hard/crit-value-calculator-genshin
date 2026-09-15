@@ -4,45 +4,24 @@ public class Main {
     static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        ///////////// OBJETOS ////////////
+        ///////////// ARTEFATOS ////////////
 
+        double cvMetaArtefatos = 0;
+        double taxaDoConjunto = 0;
 
-        Arma arma = new  Arma();
+        ///////////// ARMA ////////////
 
-        Artefatos flor = new Artefatos(21, 7);
-        Artefatos pena = new Artefatos(21, 7);
-        Artefatos areia = new Artefatos(21, 7);
-        Artefatos copo = new Artefatos(21, 7);
-        Artefatos tiara = new Artefatos(66, 10);
-
-
-        ///////////// VARIAVEIS ARTEFATOS ////////////
-
-
-        double cvAtefatosMeta;
-        double cvGeralArtefatos = flor.getCvDoArtefato() + pena.getCvDoArtefato() + areia.getCvDoArtefato() + copo.getCvDoArtefato() + tiara.getCvDoArtefato();
-        double mediaCvArtefatos = (flor.getCvDoArtefato() + pena.getCvDoArtefato() + areia.getCvDoArtefato() + copo.getCvDoArtefato() + tiara.getCvDoArtefato()) / 5 ;
-        double taxaTotalArtefatos = flor.taxaDoArtefato + pena.taxaDoArtefato + areia.taxaDoArtefato + copo.taxaDoArtefato + tiara.taxaDoArtefato;
-        double danoTotalArtefatos = flor.danoDoArtefato + pena.danoDoArtefato + areia.danoDoArtefato + copo.danoDoArtefato + tiara.danoDoArtefato;
-        double mediaCvSemTiara = (flor.getCvDoArtefato() + pena.getCvDoArtefato() + areia.getCvDoArtefato() + copo.getCvDoArtefato()) / 4 ;
-
-        double taxaConjuntoDeArtefatos;
-        double danoConjuntoDeArtefatos;
-
-
-        ///////////// VARIAVEIS ARMA ////////////
-
-
-        double danoDaArma;
-        double taxaDaArma;
+        double danoDaArma = 0;
+        double taxaDaArma = 0;
+        Arma arma = new  Arma(danoDaArma, taxaDaArma);
 
 
         ///////////// VARIAVEIS PERSONAGEM ////////////
 
 
-        double taxaDoPersonagem = 5;
-        double danoDoPersonagem = 50;
-        Personagem personagem = new Personagem(taxaDoPersonagem, danoDoPersonagem);
+        double taxaBaseDoPersonagem = 5;
+        double danoBaseDoPersonagem = 50;
+        Personagem personagem = new Personagem(taxaBaseDoPersonagem, danoBaseDoPersonagem);
 
         ///////////// ENTRADAS DO TERMINAL ////////////
 
@@ -51,34 +30,63 @@ public class Main {
         System.out.print("\n1 - Seu personagem acende com taxa ou dano?: ");
         String danoOuTaxa = sc.nextLine();
         if (danoOuTaxa.equals("taxa")){
-            taxaDoPersonagem = 19.2;
+            taxaBaseDoPersonagem = 19.2;
         } else if (danoOuTaxa.equals("dano")) {
-            danoDoPersonagem = 88.4;
-        } else {
-            return;
+            danoBaseDoPersonagem = 88.4;
         }
 
-        System.out.print("\n3 - insira a taxa da arma(lvl90): ");
+        System.out.println("\n2 - insira a taxa da arma(lvl90): ");
         taxaDaArma = sc.nextDouble();
 
-        System.out.print("\n4 - insira o dano da arma(lvl90): ");
+        System.out.println("\n3 - insira o dano da arma(lvl90): ");
         danoDaArma = sc.nextDouble();
 
-        System.out.print("\n5 - Qual sua meta de crit value nos artefatos para esse personagem?");
-        cvAtefatosMeta = sc.nextDouble();
+        System.out.println("\n4 - Qual sua meta de crit value nos artefatos para esse personagem?");
+        cvMetaArtefatos = sc.nextDouble();
 
-        ///////////////////////////
+        System.out.println("\n5 - Qual a taxa extra do conjunto");
+        taxaDoConjunto = sc.nextDouble();
 
-        double taxaFinal = taxaDoPersonagem + taxaTotalArtefatos + taxaDaArma;
-        double DanoFinal = danoDoPersonagem + danoTotalArtefatos + danoDaArma;
+        ///////////////////////////calculos
 
-        double taxaTotalSemArtefatos = taxaDoPersonagem + taxaDaArma;
-        double danoTotalSemArtefatos = danoDoPersonagem + danoDaArma;
+        double taxaBase = taxaBaseDoPersonagem + taxaDaArma + taxaDoConjunto;
+        double danoBase = danoBaseDoPersonagem + danoDaArma;
 
+        ///////////////////////////calculos de cv
 
-        ///////////////////////////
-
-        double taxaIdeial;
+        double taxaIdeal;
         double danoIdeal;
+
+        if (taxaBase > 5){
+            if (taxaBase <= 80){
+                taxaIdeal = 80 - taxaBase;
+            } else {
+                taxaIdeal = 0;
+            }
+        } else {
+            if (taxaBase <= 75){
+                taxaIdeal = 75 - taxaBase;
+            } else {
+                taxaIdeal = 0;
+            }
+        }
+
+        danoIdeal = cvMetaArtefatos - (taxaIdeal * 2);;
+
+        double taxaFinal = taxaBase + taxaIdeal;
+        double danoFinal = danoBase + danoIdeal;
+        ////////////////////////////
+
+
+        System.out.printf("\nTaxa final: %.1f", taxaBase);
+        System.out.printf("\nDano final: %.1f", danoBase);
+        System.out.printf("\nCv Meta: %.1f", cvMetaArtefatos);
+        System.out.printf("\nCV ideal: %.1f/%.1f", taxaIdeal, danoIdeal);
+        System.out.printf("\nbuild estimada: %.1f/%.1f", taxaFinal, danoFinal);
+
+
+
+
+
     }
 }
