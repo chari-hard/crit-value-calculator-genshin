@@ -35,16 +35,16 @@ public class Main {
             danoBaseDoPersonagem = 88.4;
         }
 
-        System.out.println("\n2 - insira a taxa da arma(lvl90): ");
+        System.out.print("\n2 - insira a taxa da arma(lvl90): ");
         taxaDaArma = sc.nextDouble();
 
-        System.out.println("\n3 - insira o dano da arma(lvl90): ");
+        System.out.print("\n3 - insira o dano da arma(lvl90): ");
         danoDaArma = sc.nextDouble();
 
-        System.out.println("\n4 - Qual sua meta de crit value nos artefatos para esse personagem?");
+        System.out.print("\n4 - Qual sua meta de crit value nos artefatos para esse personagem?: ");
         cvMetaArtefatos = sc.nextDouble();
 
-        System.out.println("\n5 - Qual a taxa extra do conjunto");
+        System.out.print("\n5 - Qual a taxa extra do conjunto?: ");
         taxaDoConjunto = sc.nextDouble();
 
         ///////////////////////////calculos
@@ -78,9 +78,9 @@ public class Main {
         ////////////////////////////
 
 
-        System.out.printf("\nTaxa final: %.1f", taxaBase);
-        System.out.printf("\nDano final: %.1f", danoBase);
-        System.out.printf("\nCv Meta: %.1f", cvMetaArtefatos);
+        System.out.printf("\nTaxa base: %.1f", taxaBase);
+        System.out.printf("\nDano base: %.1f", danoBase);
+        System.out.printf("\nCv Meta: %.0f", cvMetaArtefatos);
         System.out.printf("\nCV ideal: %.1f/%.1f", taxaIdeal, danoIdeal);
         System.out.printf("\nbuild estimada: %.1f/%.1f", taxaFinal, danoFinal);
 
