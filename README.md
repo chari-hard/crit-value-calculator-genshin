@@ -70,16 +70,6 @@
 </ul>
 
 
-
-
-
-
-
-
-
-
-
-
 <h3 align="center">Considerações finais</h3>
-<p align="center">Esse programa foi feito com base no MEU métodos de equilibrar esses números, não uma verdade absoluta. <br>Reconheco, que o programa está bem simples e confuso, e sei que é possível melhorar e evoluir muito mais com polimorfismo e herança.<br>Devo mexer em algumas coisas também, como adicionar a ressonância cryo e verificar se o perosnagem possui alguma aumento de taxa no próprio kit.</p>
+<p align="center">Esse programa foi feito com base no MEU método de equilibrar esses números, não uma verdade absoluta. <br>Reconheco, que o programa está bem simples e confuso, e sei que é possível melhorar e evoluir muito mais com polimorfismo e herança.<br>Devo mexer em algumas coisas também, como adicionar a ressonância cryo e verificar se o perosnagem possui alguma aumento de taxa no próprio kit.</p>
 
